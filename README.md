@@ -38,8 +38,15 @@ app using [GitHub Pages](https://pages.github.com/). Every push to the `main`
 branch triggers the workflow which:
 
 1. Installs dependencies and builds the project.
-2. Uploads the generated `dist` folder as a Pages artifact.
+2. Uploads the generated `dist` folder as an artifact.
 3. Deploys the artifact to GitHub Pages.
+
+When building manually, be sure to set the `BASE_PATH` environment variable to
+your repository name so Vite generates correct asset paths. For example:
+
+```bash
+BASE_PATH=<repository> npm run build
+```
 
 The public site will be available at `https://<username>.github.io/<repository>/`
 after the workflow completes.
