@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { CSSProperties, useState } from 'react'
 import Header from './Header'
 import './MainPage.css'
 import logo from './assets/logo.jpeg'
@@ -15,14 +15,9 @@ export default function MainPage() {
     `De plus, au CABINETDENTAIRE.ca, vous pouvez être servi en français, anglais, espagnol, portugais, russe, polonais et roumain.`,
   ]
 
-  const wrapperStyle =
+  const wrapperStyle: CSSProperties =
     active === 'Home'
-      ? {
-          backgroundImage: `url(${background1})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }
+      ? ({ '--background-image': `url(${background1})` } as CSSProperties)
       : {}
 
   return (
