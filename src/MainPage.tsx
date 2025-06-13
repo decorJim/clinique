@@ -1,11 +1,13 @@
 import Header from './Header'
 import './MainPage.css'
+import logo from './assets/logo.jpeg'
 
 export default function MainPage() {
   return (
     <>
       <Header />
       <main className="content-card">
+        <img src={logo} alt="Cabinet Dentaire Logo" className="card-logo" />
         <p>
           Le CABINETDENTAIRE.ca se positionne comme un centre dentaire qui offre
           des soins professionnels, accompagnés d’une technologie de pointe qui a fait
