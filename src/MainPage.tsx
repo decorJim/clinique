@@ -4,12 +4,14 @@ import './MainPage.css'
 import logo from './assets/logo.jpeg'
 import background1 from './assets/background 1.jpeg'
 import background2 from './assets/background 2.png'
+import background3 from './assets/background 3.jpeg'
 
 export default function MainPage() {
   const [active, setActive] = useState('Home')
   const [loaded, setLoaded] = useState(false)
   const [background, setBackground] = useState(background1)
   const [fadeImage, setFadeImage] = useState<string | null>(null)
+  const [revealImage, setRevealImage] = useState<string | null>(null)
 
   useEffect(() => {
     setLoaded(true)
@@ -21,6 +23,13 @@ export default function MainPage() {
       const timer = setTimeout(() => {
         setBackground(background2)
         setFadeImage(null)
+      }, 1000)
+      return () => clearTimeout(timer)
+    } else if (active === 'Conseil') {
+      setRevealImage(background3)
+      const timer = setTimeout(() => {
+        setBackground(background3)
+        setRevealImage(null)
       }, 1000)
       return () => clearTimeout(timer)
     } else {
@@ -45,10 +54,16 @@ export default function MainPage() {
       '--fade-image': `url(${fadeImage})`,
     } as CSSProperties
   }
+  if (revealImage) {
+    wrapperStyle = {
+      ...wrapperStyle,
+      '--reveal-image': `url(${revealImage})`,
+    } as CSSProperties
+  }
 
   const wrapperClass = `page-wrapper${
     loaded && active === 'Home' ? ' reveal' : ''
-  }${fadeImage ? ' fading' : ''}`
+  }${fadeImage ? ' fading' : ''}${revealImage ? ' revealing' : ''}`
 
   const adviceParagraphs = [
     "Avant la chirurgie, abstenez-vous de prendre de l’aspirine dix jours à l’avance et d’alcool dans les vingt-quatre heures précédentes. Signalez-nous tout changement à votre dossier médical. Prenez un repas et, si une sédation est prévue, assurez-vous qu’une personne responsable vous accompagne.",
