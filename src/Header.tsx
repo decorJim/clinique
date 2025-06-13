@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './Header.css'
 
 const navItems = [
@@ -14,12 +15,18 @@ const navItems = [
 ]
 
 export default function Header() {
+  const [active, setActive] = useState('Home')
+
   return (
     <header className="header">
       <h1 className="title">Cabinet Dentaire Lachine</h1>
       <nav className="nav">
         {navItems.map((item) => (
-          <button key={item} className="nav-button">
+          <button
+            key={item}
+            className={`nav-button${active === item ? ' active' : ''}`}
+            onClick={() => setActive(item)}
+          >
             {item}
           </button>
         ))}
