@@ -8,10 +8,25 @@ import background2 from './assets/background 2.png'
 export default function MainPage() {
   const [active, setActive] = useState('Home')
   const [loaded, setLoaded] = useState(false)
+  const [background, setBackground] = useState(background1)
+  const [fadeImage, setFadeImage] = useState<string | null>(null)
 
   useEffect(() => {
     setLoaded(true)
   }, [])
+
+  useEffect(() => {
+    if (active === 'Services') {
+      setFadeImage(background2)
+      const timer = setTimeout(() => {
+        setBackground(background2)
+        setFadeImage(null)
+      }, 1000)
+      return () => clearTimeout(timer)
+    } else {
+      setBackground(background1)
+    }
+  }, [active])
 
   const paragraphs = [
     `Le CABINETDENTAIRE.ca se positionne comme un centre dentaire qui offre des soins professionnels, accompagnés d’une technologie de pointe qui a fait ses preuves. Une équipe multidisciplinaire nous permet d’offrir une grande gamme de services dentaires au sein même de notre clinique dentaire de Lachine, à Montréal, un avantage indéniable qui évite les déplacements et le transfert de dossiers. Nous préconisons la prévention et la santé dentaire à long terme.`,
@@ -21,22 +36,22 @@ export default function MainPage() {
     `De plus, au CABINETDENTAIRE.ca, vous pouvez être servi en français, anglais, espagnol, portugais, russe, polonais et roumain.`,
   ]
 
-  let wrapperStyle: CSSProperties = {}
-  if (active === 'Home') {
+  let wrapperStyle: CSSProperties = {
+    '--background-image': `url(${background})`,
+  } as CSSProperties
+  if (fadeImage) {
     wrapperStyle = {
-      '--background-image': `url(${background1})`,
-    } as CSSProperties
-  } else if (active === 'Services') {
-    wrapperStyle = {
-      '--background-image': `url(${background2})`,
+      ...wrapperStyle,
+      '--fade-image': `url(${fadeImage})`,
     } as CSSProperties
   }
 
+  const wrapperClass = `page-wrapper${
+    loaded && active === 'Home' ? ' reveal' : ''
+  }${fadeImage ? ' fading' : ''}`
+
   return (
-    <div
-      className={`page-wrapper${loaded && active === 'Home' ? ' reveal' : ''}`}
-      style={wrapperStyle}
-    >
+    <div className={wrapperClass} style={wrapperStyle}>
       <Header active={active} onChange={setActive} />
       <main className="content-card">
         <img src={logo} alt="Cabinet Dentaire Logo" className="card-logo" />
