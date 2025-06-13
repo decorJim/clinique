@@ -3,6 +3,7 @@ import Header from './Header'
 import './MainPage.css'
 import logo from './assets/logo.jpeg'
 import background1 from './assets/background 1.jpeg'
+import background2 from './assets/background 2.png'
 
 export default function MainPage() {
   const [active, setActive] = useState('Home')
@@ -15,10 +16,16 @@ export default function MainPage() {
     `De plus, au CABINETDENTAIRE.ca, vous pouvez être servi en français, anglais, espagnol, portugais, russe, polonais et roumain.`,
   ]
 
-  const wrapperStyle: CSSProperties =
-    active === 'Home'
-      ? ({ '--background-image': `url(${background1})` } as CSSProperties)
-      : {}
+  let wrapperStyle: CSSProperties = {}
+  if (active === 'Home') {
+    wrapperStyle = {
+      '--background-image': `url(${background1})`,
+    } as CSSProperties
+  } else if (active === 'À Propos') {
+    wrapperStyle = {
+      '--background-image': `url(${background2})`,
+    } as CSSProperties
+  }
 
   return (
     <div className="page-wrapper" style={wrapperStyle}>
