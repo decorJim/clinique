@@ -53,3 +53,16 @@
   background-repeat: no-repeat;
   z-index: -1;
 }
+
+.page-wrapper.reveal::before {
+  animation: reveal-bg 1s ease-out forwards;
+}
+
+@keyframes reveal-bg {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
