@@ -1,8 +1,12 @@
+import { useState } from 'react'
 import Header from './Header'
 import './MainPage.css'
 import logo from './assets/logo.jpeg'
+import background1 from './assets/background 1.jpeg'
 
 export default function MainPage() {
+  const [active, setActive] = useState('Home')
+
   const paragraphs = [
     `Le CABINETDENTAIRE.ca se positionne comme un centre dentaire qui offre des soins professionnels, accompagnés d’une technologie de pointe qui a fait ses preuves. Une équipe multidisciplinaire nous permet d’offrir une grande gamme de services dentaires au sein même de notre clinique dentaire de Lachine, à Montréal, un avantage indéniable qui évite les déplacements et le transfert de dossiers. Nous préconisons la prévention et la santé dentaire à long terme.`,
     `Notre but est de vous offrir un beau sourire radieux et durable. Le CABINETDENTAIRE.ca forme une grande famille de professionnels dentaires qui ont à cœur le bien-être et la santé de leurs patients. Nous faisons tout en notre capacité pour vous faire vivre une expérience des plus agréables.`,
@@ -11,9 +15,19 @@ export default function MainPage() {
     `De plus, au CABINETDENTAIRE.ca, vous pouvez être servi en français, anglais, espagnol, portugais, russe, polonais et roumain.`,
   ]
 
+  const wrapperStyle =
+    active === 'Home'
+      ? {
+          backgroundImage: `url(${background1})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }
+      : {}
+
   return (
-    <>
-      <Header />
+    <div className="page-wrapper" style={wrapperStyle}>
+      <Header active={active} onChange={setActive} />
       <main className="content-card">
         <img src={logo} alt="Cabinet Dentaire Logo" className="card-logo" />
         {paragraphs.map((text, index) => (
@@ -22,6 +36,6 @@ export default function MainPage() {
           </div>
         ))}
       </main>
-    </>
+    </div>
   )
 }

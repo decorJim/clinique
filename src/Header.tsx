@@ -1,6 +1,10 @@
-import { useState } from 'react'
 import './Header.css'
 import logo from './assets/logo.jpeg'
+
+interface HeaderProps {
+  active: string
+  onChange: (item: string) => void
+}
 
 const navItems = [
   'Home',
@@ -15,8 +19,7 @@ const navItems = [
   'Contact',
 ]
 
-export default function Header() {
-  const [active, setActive] = useState('Home')
+export default function Header({ active, onChange }: HeaderProps) {
 
   return (
     <header className="header">
@@ -27,7 +30,7 @@ export default function Header() {
           <button
             key={item}
             className={`nav-button${active === item ? ' active' : ''}`}
-            onClick={() => setActive(item)}
+            onClick={() => onChange(item)}
           >
             {item}
           </button>
