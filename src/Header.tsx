@@ -8,7 +8,6 @@ interface HeaderProps {
 
 const navItems = [
   'Home',
-  'À Propos',
   'Services',
   'Conseil',
   'Our team',

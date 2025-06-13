@@ -21,7 +21,7 @@ export default function MainPage() {
     wrapperStyle = {
       '--background-image': `url(${background1})`,
     } as CSSProperties
-  } else if (active === 'À Propos') {
+  } else if (active === 'Services') {
     wrapperStyle = {
       '--background-image': `url(${background2})`,
     } as CSSProperties
