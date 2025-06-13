@@ -58,11 +58,32 @@
   animation: reveal-bg 1s ease-out forwards;
 }
 
+.page-wrapper.fading::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--fade-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: fade-bg 1s forwards;
+}
+
 @keyframes reveal-bg {
   from {
     clip-path: inset(0 0 0 100%);
   }
   to {
     clip-path: inset(0);
+  }
+}
+
+@keyframes fade-bg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
