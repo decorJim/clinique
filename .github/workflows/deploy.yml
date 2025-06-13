@@ -32,8 +32,12 @@ jobs:
           path: ./dist
 
   deploy:
+    environment:
+      name: github-pages
     needs: build
     runs-on: ubuntu-latest
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+    
+
