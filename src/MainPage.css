@@ -9,3 +9,10 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
+
+.card-logo {
+  display: block;
+  margin: 0 auto 1.5rem;
+  max-width: 150px;
+  border-radius: 8px;
+}
