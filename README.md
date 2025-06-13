@@ -31,6 +31,19 @@ export default tseslint.config({
 })
 ```
 
+## Deploying to GitHub Pages
+
+This project includes a workflow that automatically builds and publishes the
+app using [GitHub Pages](https://pages.github.com/). Every push to the `main`
+branch triggers the workflow which:
+
+1. Installs dependencies and builds the project.
+2. Uploads the generated `dist` folder as a Pages artifact.
+3. Deploys the artifact to GitHub Pages.
+
+The public site will be available at `https://<username>.github.io/<repository>/`
+after the workflow completes.
+
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
