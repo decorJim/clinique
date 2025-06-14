@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.3rem;
 }
 
 .title {
@@ -63,10 +63,12 @@
 
 .tagline {
   margin: 0;
+  margin-left: 20px;
   font-size: 0.6rem;
   font-weight: bold;
   position: absolute;
   top: calc(100% + 2px);
   left: 50%;
   transform: translateX(-50%);
+  width: 100px
 }

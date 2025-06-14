@@ -25,7 +25,7 @@ export default function Header({ active, onChange }: HeaderProps) {
       <div className="header-top">
         <div className="logo-container">
           <img src={logo} alt="Cabinet Dentaire Logo" className="header-logo" />
-          <p className="tagline">depuis 1978</p>
+          <p className="tagline">Depuis 1978</p>
         </div>
         <h1 className="title">CABINETDENTAIRE.ca</h1>
       </div>
