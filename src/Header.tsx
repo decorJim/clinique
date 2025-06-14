@@ -23,10 +23,12 @@ export default function Header({ active, onChange }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-top">
-        <img src={logo} alt="Cabinet Dentaire Logo" className="header-logo" />
+        <div className="logo-container">
+          <img src={logo} alt="Cabinet Dentaire Logo" className="header-logo" />
+          <p className="tagline">depuis 1978</p>
+        </div>
         <h1 className="title">CABINETDENTAIRE.ca</h1>
       </div>
-      <p className="tagline">depuis 1978</p>
       <nav className="nav">
         {navItems.map((item) => (
           <button
