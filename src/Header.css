@@ -22,18 +22,13 @@ h1 {
 }
 
 .nav-button {
-  background: transparent;
-  color: inherit;
+  background-color: #ffe5b4;
+  color: #033649;
   border: 1px solid currentColor;
   border-radius: 4px;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.nav-button.active {
-  background-color: #ffe5b4;
-  color: #033649;
 }
 
 .nav-button:hover {
