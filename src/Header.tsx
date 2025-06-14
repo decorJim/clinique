@@ -23,9 +23,14 @@ export default function Header({ active, onChange }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-top">
-        <div className="logo-container">
-          <img src={logo} alt="Cabinet Dentaire Logo" className="header-logo" />
-          <p className="tagline">Depuis 1978</p>
+        <div className="header-left">
+          <div className="logo-container">
+            <img src={logo} alt="Cabinet Dentaire Logo" className="header-logo" />
+            <p className="tagline">Depuis 1978</p>
+          </div>
+          <address className="address">
+            2035 Rue Victoria #200, Lachine, QC H8S 0A8
+          </address>
         </div>
         <h1 className="title">CABINETDENTAIRE.ca</h1>
       </div>
