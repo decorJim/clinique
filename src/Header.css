@@ -15,11 +15,6 @@
   gap: 1rem;
 }
 
-.header-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 
 .logo-container {
   display: flex;
@@ -81,9 +76,7 @@
 }
 
 .address {
-  margin-top: 1rem;
   font-size: 1.1rem;
   font-weight: bold;
   text-align: left;
-  margin-left: -20px;
 }
