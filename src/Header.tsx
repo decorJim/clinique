@@ -23,9 +23,10 @@ export default function Header({ active, onChange }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-top">
-        <address className="address">
-          2035 Rue Victoria #200, Lachine, QC H8S 0A8
-        </address>
+        <div className="address">
+          <div>2035 Rue Victoria #200</div>
+          <div>Lachine, QC H8S 0A8</div>
+        </div>
         <div className="logo-container">
           <img src={logo} alt="Cabinet Dentaire Logo" className="header-logo" />
           <p className="tagline">Depuis 1978</p>
